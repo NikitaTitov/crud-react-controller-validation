@@ -1,0 +1,17 @@
+version: '0.1'
+
+services:
+
+  mongo:
+    image: mongo:latest
+    container_name: 'test_mongodb'
+    restart: always
+    volumes:
+      - 'secret-santa:/data/db'
+    ports:
+      - ${MONGODB_PORT}:27017
+
+# This need for windows OS
+volumes:
+  secret-santa:
+    driver: local
